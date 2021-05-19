@@ -1,30 +1,30 @@
 <div class = "card">
 
     <div class = "card-body">
-        <H4>CÔng ty TNHH Lê Tuấn Anh</H4>
+        <H4>CONG TY CO PHAN FPT SOFTWARE</H4>
         <div class = "form-group">
-            <label>Tên công việc</label>
-            <input  class="w-100" id = "name" [(ngModel)]="recruitment.name" name = "name" autofocus/>
+            <label class = "label">Tên công việc</label>
+            <input  class="w-100 p-2 form-control" id = "name" [(ngModel)]="recruitment.name" name = "name" autofocus/>
         </div>
         <div class = "form-group row">
             <div class = "form-group col-md-3">
                 <label>Mức trợ cấp</label>
-                <input  class="w-100"/>
+                <input  class="w-100 p-2 form-control"/>
             </div>
             <div class = "form-group col-md-3">
                 <label>Hình thức làm việc</label>
-                <select class="form-control ">
+                <select class="form-control">
                     <option>Fulltime</option>
                     <option>Parttime</option>
                   </select>
             </div>
             <div class = "form-group col-md-3">
                 <label>Số lượng cần tuyển</label>
-                <input  class="w-100"/>
+                <input  class="w-100 p-2 form-control"/>
             </div>
             <div class = "form-group col-md-3">
                 <label>Chức vụ</label>
-                <input  class="w-100"/>
+                <input  class="w-100 p-2 form-control"/>
             </div>
 
 
@@ -32,34 +32,37 @@
         <div class = "form-group row">
             <div class = "form-group col-md-6">
                 <label>Địa điểm làm việc</label>
-                <input  class="w-100" />
+                <input  class="w-100 p-2 form-control" />
             </div>
-            <div class = "form-group col-md-6">
+            <div class = "form-group col-md-6" style = "position: relative;">
                 <label>Hạn nộp hồ sơ</label>
-                <input  class="w-100"/>
+                <input matInput [matDatepicker]="datepicker" class="w-100 p-2 form-control" />
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"   style = "position: absolute; top: 25px; right: 15px"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker>
+                    </mat-datepicker>
             </div>
         </div>
         <div class = "form-group">
             <label>Mô Tả công việc</label>
-            <textarea  class="w-100 long-input"
+            <textarea  class="w-100 medium-input p-2 form-control"
             ></textarea>
         </div>
         <div class = "form-group">
             <label>yêu cầu ứng viên</label>
-            <textarea  class="w-100 long-input"
+            <textarea  class="w-100 medium-input p-2 form-control"
             ></textarea>
         </div>
         <div class = "form-group">
             <label>Quyền lợi</label>
-            <textarea  class="w-100 long-input"
+            <textarea  class="w-100 medium-input p-2 form-control"
             ></textarea>
         </div>
         
                     
     
-    <div class="col-md-12">
+    <div class="col-md-12 p-0">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-success" (click) = "onSubmit()">Lưu</button>
+            <button type="button" class="btn btn-primary" (click) = "onSubmit()">Lưu</button>
         </div>
     </div>
 

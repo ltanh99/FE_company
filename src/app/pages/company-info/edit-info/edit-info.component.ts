@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EditInfoComponent implements OnInit {
 
   constructor() { }
-  company = "công ty trách nhiệm hh 1 tv"
+  company = "Cong ty co phan FPT Software"
   ngOnInit(): void {
   }
 

@@ -10,11 +10,11 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     { path: '/gioi-thieu',     title: 'Giới thiệu',         icon:'fas fa-university',       class: '' },
-    { path: '/tin-tuyen-dung',         title: 'Tin tuyển dụng',             icon:'fas fa-laptop-code',    class: '' },
-    { path: '/danh-gia',          title: 'Đánh giá',              icon:'fas fa-heart',      class: '' },
-    { path: '/dao-tao',          title: 'Đào tạo',      icon:'fas fa-book-open',  class: '' },
+    { path: '/tin-tuyen-dung',         title: 'Tuyển dụng',             icon:'fas fa-user-plus',    class: '' },
+    { path: '/danh-gia',          title: 'Đánh giá',              icon:'far fa-thumbs-up',      class: '' },
+    { path: '/dao-tao',          title: 'Seminar',      icon:'fas fa-book-open',  class: '' },
     // { path: '/notifications', title: 'Notifications',     icon:'nc-icon nc-bell-55',    class: '' },
-    { path: '/tin-nhan', title: 'Tin nhắn',     icon:'fas fa-sms',    class: '' },
+    { path: '/tin-nhan', title: 'Tin nhắn',     icon:'far fa-comment',    class: '' },
     // { path: '/user',          title: 'User Profile',      icon:'nc-icon nc-single-02',  class: '' },
     // { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '' },
     // { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
