@@ -71,6 +71,7 @@ import { RatesComponent } from './pages/rates/rates.component';
     EditInfoComponent,
     AddEduComponent,
     RatesComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

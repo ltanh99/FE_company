@@ -8,15 +8,15 @@ import { Recruitment } from '../recruitment';
 })
 export class GetRecruitmentService {
 
-  private apiGetRecuitment: string = "http://202.92.4.184:8585/RecruitmentAPI/api/v1/jobs"
+  private apiGetRecuitment: string = "http://202.92.4.184:8585/RecruitmentAPI"
   constructor(private http: HttpClient) { }
 
   
-  getRecruitment(): Observable<any>{
-    return this.http.get (this.apiGetRecuitment);
+  getRecruitment(id): Observable<any>{
+    return this.http.get (this.apiGetRecuitment+"/api/v1/jobs/companies/"+id+"/jobs");
   }
   postRecruitment(recruitment: Recruitment): Observable<any>{
     const body = recruitment;
-    return this.http.post (this.apiGetRecuitment, body);
+    return this.http.post (this.apiGetRecuitment + "/api/v1/jobs", body);
   }
 }

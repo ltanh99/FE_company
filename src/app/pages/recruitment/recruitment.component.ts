@@ -32,7 +32,8 @@ export class RecruitmentComponent implements OnInit {
   }
 
   getRecruitmentList(){
-    this.getRecruitmentService.getRecruitment().subscribe(res => {
+    let user = JSON.parse(localStorage.getItem("common-info"));
+    this.getRecruitmentService.getRecruitment(user?.company?.id).subscribe(res => {
       console.log(res);
       this.recruitment = res.rows;
     })
