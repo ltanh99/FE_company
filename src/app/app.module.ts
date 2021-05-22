@@ -72,6 +72,7 @@ import { ViewListStudentComponent } from './pages/recruitment/view-list-student/
     EditInfoComponent,
     AddEduComponent,
     RatesComponent,
+    MessageComponent
     RecruitmentComponent,
     ViewListStudentComponent,
   ],
@@ -91,9 +92,9 @@ import { ViewListStudentComponent } from './pages/recruitment/view-list-student/
     // FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    // MatDialogActions,          
-    MatNativeDateModule,             
-    MatDatepickerModule,   
+    // MatDialogActions,
+    MatNativeDateModule,
+    MatDatepickerModule,
     FormsModule
   ],
   entryComponents: [

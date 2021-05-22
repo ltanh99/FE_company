@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { CompanyInfoService } from 'app/service/company-info.service';
 import { EditInfoComponent } from './edit-info/edit-info.component';
 
 @Component({
@@ -9,10 +11,46 @@ import { EditInfoComponent } from './edit-info/edit-info.component';
 })
 export class CompanyInfoComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  userInfo;
+  detailInfo;
+  form: any;
+  constructor(public dialog: MatDialog,
+    public companyInfoService: CompanyInfoService) { }
 
   ngOnInit(): void {
+    this.companyInfoService.companyLogin({ username: "tuyendungfpt", password: "123456aA@" }).subscribe(res => {
+      // localStorage.setItem('session', '');
+      localStorage.setItem('common-info', '');
+      let now = new Date();
+      // localStorage.setItem('session', this.addMinutes(now, 30).getTime().toString());
+      localStorage.setItem('common-info', JSON.stringify(res));
+      // this.router.navigate(['cong-viec']);
+      // this.dataService.setMessage(res);
+    })
+
+    this.getInfo();
+    this.companyInfoService.getCompanyById(this.userInfo.company.id).subscribe(res =>{
+      this.detailInfo = res;
+    })
+
+    this.form = new FormGroup({
+      studentName: new FormControl('', null),
+      studentCode: new FormControl('', null),
+      gender: new FormControl('', null),
+      birthday: new FormControl('', null),
+      email: new FormControl('', null),
+      address: new FormControl('', null)
+    });
+
+    
   }
+
+  getInfo() {
+    if (localStorage.getItem("common-info")) {
+      this.userInfo = JSON.parse(localStorage.getItem("common-info"));
+    }
+  }
+
 
   openPopupEdit() {
 
