@@ -25,22 +25,22 @@ export class EducationComponent implements OnInit {
     console.log(e);
     let dialogRef = this.dialog.open(DetailEducationComponent, {
       width: '500px',
-      height: '600px'
+      height: '400px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
-  // add() {
-  //   let dialogRef = this.dialog.open(AddEduComponent, {
-  //     width: '800px',
-  //     height: '400px'
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
+  add() {
+    let dialogRef = this.dialog.open(AddEduComponent, {
+      width: '600px',
+      height: '530px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   clickSearch() {
     this.toggleSearch = !this.toggleSearch;

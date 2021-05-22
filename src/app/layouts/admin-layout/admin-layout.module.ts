@@ -25,7 +25,6 @@ import { RecruitmentComponent } from 'app/pages/recruitment/recruitment.componen
     NgbModule
   ],
   declarations: [
-    RecruitmentComponent,
     DashboardComponent,
     UserComponent,
     TableComponent,

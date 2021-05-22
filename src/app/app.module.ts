@@ -46,6 +46,7 @@ import { MatNativeDateModule} from "@angular/material/core";
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RatesComponent } from './pages/rates/rates.component';
+import { ViewListStudentComponent } from './pages/recruitment/view-list-student/view-list-student.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,8 @@ import { RatesComponent } from './pages/rates/rates.component';
     EditInfoComponent,
     AddEduComponent,
     RatesComponent,
+    RecruitmentComponent,
+    ViewListStudentComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import {GetRecruitmentService} from './service/get-recruitment.service';
 import { AddComponent } from './add/add.component';
 import { Recruitment } from './recruitment';
 import { Router } from '@angular/router';
+import { ViewListStudentComponent } from './view-list-student/view-list-student.component';
 
 @Component({
   selector: 'app-recruitment',
@@ -40,5 +41,14 @@ export class RecruitmentComponent implements OnInit {
   }
   openPageAdd(){
     this.router.navigate(['tin-tuyen-dung/them-moi']);
+  }
+  viewListStudent(){
+    let dialogRef = this.dialog.open(ViewListStudentComponent, {
+      width: '800px',
+      height: '500px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
