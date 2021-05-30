@@ -72,7 +72,7 @@ import { ViewListStudentComponent } from './pages/recruitment/view-list-student/
     EditInfoComponent,
     AddEduComponent,
     RatesComponent,
-    MessageComponent
+    MessageComponent,
     RecruitmentComponent,
     ViewListStudentComponent,
   ],

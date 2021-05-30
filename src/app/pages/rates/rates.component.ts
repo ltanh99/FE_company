@@ -9,6 +9,8 @@ export class RatesComponent implements OnInit {
 
   listRates = [];
   userInfo: any;
+  avatar: any;
+  color = '#512DA8';
   constructor() { }
 
   ngOnInit(): void {

@@ -15,7 +15,7 @@ export class AddComponent implements OnInit {
   ngOnInit(): void {
     this.recruitment = {
       id : 10,
-      name: "abc",
+      name: "",
       content: "aaa",
       description: "a"
     }

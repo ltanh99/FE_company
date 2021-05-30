@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
+    company: any;
+    public companyName : string;
 
     public isCollapsed = true;
     @ViewChild("navbar-cmp", {static: false}) button;
@@ -32,6 +34,9 @@ export class NavbarComponent implements OnInit{
         this.router.events.subscribe((event) => {
           this.sidebarClose();
        });
+       this.company = localStorage.getItem("common-info");
+       this.companyName =  JSON.parse(this.company).fullName;
+       console.log(this.companyName);
     }
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -92,4 +97,7 @@ export class NavbarComponent implements OnInit{
 
       }
 
+      logOut(){
+        localStorage.setItem("session", "");
+    }
 }

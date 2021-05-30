@@ -17,4 +17,5 @@ export class CompanyInfoService {
   getCompanyById(id): Observable<any> {
     return this.http.get(this.apiUrl+"api/v1/companies/"+id);
   }
+  
 }

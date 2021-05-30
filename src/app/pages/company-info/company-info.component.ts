@@ -16,31 +16,34 @@ export class CompanyInfoComponent implements OnInit {
   form: any;
   constructor(public dialog: MatDialog,
     public companyInfoService: CompanyInfoService) { }
-
+    //company: any;
+    // companyInfo: any;
   ngOnInit(): void {
-    this.companyInfoService.companyLogin({ username: "tuyendungfpt", password: "123456aA@" }).subscribe(res => {
+    // this.company = localStorage.getItem("common-info");
+    // this.companyInfoService.companyLogin(JSON.parse(this.company)).subscribe(res => {
       // localStorage.setItem('session', '');
-      localStorage.setItem('common-info', '');
-      let now = new Date();
+                  // localStorage.setItem('common-info', '');
+                  // let now = new Date();
       // localStorage.setItem('session', this.addMinutes(now, 30).getTime().toString());
-      localStorage.setItem('common-info', JSON.stringify(res));
+                    // localStorage.setItem('common-info', JSON.stringify(res));
       // this.router.navigate(['cong-viec']);
       // this.dataService.setMessage(res);
-    })
+    //   this.companyInfo = res;
+    // })
 
     this.getInfo();
     this.companyInfoService.getCompanyById(this.userInfo.company.id).subscribe(res =>{
       this.detailInfo = res;
     })
 
-    this.form = new FormGroup({
-      studentName: new FormControl('', null),
-      studentCode: new FormControl('', null),
-      gender: new FormControl('', null),
-      birthday: new FormControl('', null),
-      email: new FormControl('', null),
-      address: new FormControl('', null)
-    });
+    // this.form = new FormGroup({
+    //   studentName: new FormControl('', null),
+    //   studentCode: new FormControl('', null),
+    //   gender: new FormControl('', null),
+    //   birthday: new FormControl('', null),
+    //   email: new FormControl('', null),
+    //   address: new FormControl('', null)
+    // });
 
     
   }

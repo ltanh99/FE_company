@@ -8,8 +8,8 @@
                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlFx0pzEoOcvEJv49Qe2cDBGaa8nL2UtCsGQ&usqp=CAU">
         </div>
         <div class = "col-md-7">
-          <h2 class = "mb-4 pb-0">CONG TY CO PHAN FPT SORFWARE</h2>
-          <p ><i class="nc-icon nc-pin-3"></i> Địa chỉ: Ha Noi</p>
+          <h2 class = "mb-4 pb-0">{{detailInfo.fullName}}</h2>
+          <p ><i class="nc-icon nc-pin-3"></i> Địa chỉ: {{detailInfo.address}}</p>
         </div>
         <div class = "col-md-2">
           <button class = "btn btn-primary col-md-12" (click) = "openPopupEdit()">Chỉnh sửa</button>
@@ -19,16 +19,16 @@
     </div>
     <div class = "mt-5">
       <h3 class = "d-flex justify-content-center">GIỚI THIỆU CÔNG TY</h3>
-      <p>Thành lập từ năm 1988 đến nay với 3 Trụ sở chính FPT Software đặt tại Việt Nam và một số nước trên toàn thế giới như Hoa Kỳ, Nhật Bản, Malaysia, Đức, Úc, Singapore, Malaysia, Thái Lan và Philipines hiện FPT Software đáp ứng nhu cầu gia công phần mềm lớn cho hơn 150 công ty hàng đầu tại 20 quốc gia lớn.</p>
+      <p>{{detailInfo.company.description}}</p>
     </div>
     <div class = "d-flex justify-content-center mt-5">
       <div class = "col-md-3 ">
         <i class="nc-icon nc-calendar-60 col-md-12   d-flex justify-content-center" style = "font-size: 80px;"></i><p class = "col-md-12 p-0  d-flex justify-content-center">Năm Thành Lập</p>
-        <h3  class = "col-md-12 p-0  d-flex justify-content-center">1900</h3>
+        <h3  class = "col-md-12 p-0  d-flex justify-content-center">{{detailInfo.company.year}}</h3>
       </div>
       <div class = "col-md-3">
         <i class="fas fa-users  col-md-12   d-flex justify-content-center" style = "font-size: 80px;"></i><p class = "col-md-12 p-0  d-flex justify-content-center">Quy Mô</p>
-        <h3  class = "col-md-12 p-0  d-flex justify-content-center">1500</h3>
+        <h3  class = "col-md-12 p-0  d-flex justify-content-center">{{detailInfo.company.scale}}</h3>
       </div>
 
 
