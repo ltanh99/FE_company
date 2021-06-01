@@ -37,19 +37,35 @@ export class RecruitmentComponent implements OnInit {
     this.getRecruitmentService.getRecruitment(user?.company?.id).subscribe(res => {
       console.log(res);
       this.recruitment = res.rows;
+      this.recruitment.forEach((element:any) => {
+        this.getRecruitmentService.getCandidatesByJob(element["id"]).subscribe(res => {
+          if (res) {
+            console.log(res);
+            // let total = res['total'];
+            element.apply = res;
+          }
+        })
+      })
     })
-
   }
   openPageAdd(){
     this.router.navigate(['tin-tuyen-dung/them-moi']);
   }
-  viewListStudent(){
+  viewListStudent(dataApply){
     let dialogRef = this.dialog.open(ViewListStudentComponent, {
       width: '800px',
-      height: '500px'
+      height: '500px',
+      data: dataApply
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  showDetail(jobId) {
+    this.router.navigate(['tin-tuyen-dung/chi-tiet'],{queryParams: {id: jobId}})
+  }
+
+  gotoChat(item) {
+    this.router.navigate(['tin-nhan'],{queryParams: {id: 'job'+item.id,name: item.name}})
   }
 }

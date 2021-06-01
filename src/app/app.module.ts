@@ -85,7 +85,11 @@ import { ViewListStudentComponent } from './pages/recruitment/view-list-student/
     HttpClientModule,
     SidebarModule,
     NavbarModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-left',
+      preventDuplicates: true,
+    }),
     FooterModule,
     FixedPluginModule,
     // NgbModule,

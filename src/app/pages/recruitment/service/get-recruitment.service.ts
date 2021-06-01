@@ -19,4 +19,13 @@ export class GetRecruitmentService {
     const body = recruitment;
     return this.http.post (this.apiGetRecuitment + "/api/v1/jobs", body);
   }
+
+  getCandidatesByJob(id) {
+    const body = {};
+    return this.http.post(this.apiGetRecuitment + "/api/v1/jobs/"+id+"/profiles", body);
+   }
+
+   getJobById(id): Observable<any> {
+    return this.http.get(this.apiGetRecuitment + '/api/v1/jobs/' + id);
+  }
 }

@@ -17,5 +17,13 @@ export class CompanyInfoService {
   getCompanyById(id): Observable<any> {
     return this.http.get(this.apiUrl+"api/v1/companies/"+id);
   }
+
+  getEducation(id, page = 1, size = 50, searchValue = ""): Observable<any> {
+    return this.http.get(this.apiUrl + '/api/v1/educates/companies/'+id+'/educates' + '?page=' + page + '&limit=' + size + '&searchValue=' + searchValue);
+  }
+
+  getEducationById(id): Observable<any> {
+    return this.http.get(this.apiUrl + '/api/v1/educates/' + id);
+  }
   
 }

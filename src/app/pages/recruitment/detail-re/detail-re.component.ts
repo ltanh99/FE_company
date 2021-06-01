@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GetRecruitmentService } from '../service/get-recruitment.service';
 
 @Component({
   selector: 'app-detail-re',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailReComponent implements OnInit {
 
-  constructor() { }
+  jobId: any;
+  dataDetail: any;
+  constructor(private dialog: MatDialog,
+    public router: Router,
+    public route: ActivatedRoute,
+    private getRecruitmentService: GetRecruitmentService,
+    ) { }
 
   ngOnInit(): void {
+    this.jobId = this.route.snapshot.queryParamMap.get('id');
+    this.getRecruitmentService.getJobById(this.jobId).subscribe(res => {
+      this.dataDetail = res;
+    })
   }
 
 }

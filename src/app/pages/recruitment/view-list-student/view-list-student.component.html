@@ -1,23 +1,23 @@
 
   <div class = "container">
     <div>
-        <p style = "font-size: 20px">Danh sách sinh viên(2)</p>
+        <p style = "font-size: 20px">Danh sách sinh viên({{applyInfo?.total}})</p>
         <hr>
     </div>
-    <div class = " row d-flex justify-content-between" >
+    <div class = " row d-flex justify-content-between" *ngFor="let apply of applyInfo?.rows">
             <div class = "col-md-12">
                 <div class = "d-flex justify-content-between">
-                    <div style="font-size: 30px">Le Tuan Anh</div>
-                <p><i class="fas fa-history"></i> 30/04/2021</p>
+                    <div style="font-size: 30px">{{apply?.user?.fullName}}</div>
+                <!-- <p><i class="fas fa-history"></i> 30/04/2021</p> -->
                 </div>
                 
-                <p>Giói thiệu Lê Tuấn Anh</p>
-                <a href = "#">CV_le_tuan_anh.pdf</a>
+                <p>{{apply?.description}}</p>
+                <a href = "{{apply?.cvUrl}}">{{apply?.name}}</a>
                 
             </div>
+            <hr>
         </div>
-    <hr>
-    <div class = " row d-flex justify-content-between" >
+    <!-- <div class = " row d-flex justify-content-between" >
         <div class = "col-md-12">
             <div class = "d-flex justify-content-between">
                 <div style="font-size: 30px">Nguyễn Ngọc Giỏi</div>
@@ -29,7 +29,7 @@
             
         </div>
     </div>
-<hr>
+<hr> -->
 </div>    
 <mat-dialog-actions align ="end" class = "mt-0 mb-0 p-0">
     <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-outline-primary">Đóng</button>

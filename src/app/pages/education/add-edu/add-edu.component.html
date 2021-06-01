@@ -12,8 +12,8 @@
     <div class = "form-group row">
         <div class = "form-group col-md-6">
             <label class = "mb-1">Thời gian bắt đầu</label>
-            <input matInput [matDatepicker]="datepicker" class="w-100 p-2 form-control" />
-                    <mat-datepicker-toggle matSuffix [for]="datepicker"   style = "position: absolute; top: 25px; right: 15px"></mat-datepicker-toggle>
+            <input matInput [for]="datepicker" [matDatepicker]="datepicker" class="w-100 p-2 form-control"  [(ngModel)]="educateInfo.content"/>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"   style = "position: absolute; top: 25px;color: #000!important; right: 15px"></mat-datepicker-toggle>
                     <mat-datepicker #datepicker>
                     </mat-datepicker>
         </div>

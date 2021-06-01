@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { DataServiceService } from 'app/service/data-service.service';
 import { Student } from '../ts/student';
 import { LoginService } from '../service/login.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private studentService: LoginService, 
     public router: Router,
+    private toastr: ToastrService,
     public dataService: DataServiceService) { }
 
 
@@ -42,7 +44,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('common-info', JSON.stringify(res));
         this.router.navigate(['tin-tuyen-dung']);
         this.dataService.setMessage(res);
-        
+      } else {
+        if (!res.isCompany) {
+          this.toastr.error( 'Đăng nhập bằng tài khoản công ty!');
+        } else {
+          this.toastr.error( 'Đăng nhập thất bại');
+        }
       }
     //   token1 = res.token;
     //   localStorage.setItem('token', token1);
