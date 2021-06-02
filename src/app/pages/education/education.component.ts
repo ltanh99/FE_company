@@ -44,7 +44,7 @@ export class EducationComponent implements OnInit {
   add() {
     let dialogRef = this.dialog.open(AddEduComponent, {
       width: '600px',
-      height: '530px'
+      height: '560px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

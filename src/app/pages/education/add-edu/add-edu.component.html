@@ -1,6 +1,6 @@
 <div>
     <h5 class = "m-0">Thêm mới seminar</h5>
-    <hr class = "mt-0">
+    <hr class = "mt-0 mb-2">
     <div class = "form-group">
         <label class = "mb-1">Tên seminar</label>
         <input  class="w-100 form-control p-1" autofocus/>
@@ -9,13 +9,10 @@
         <label>Diễn giả</label>
         <input  class="w-100 form-control p-1"/>
     </div>
-    <div class = "form-group row">
+    <div class = "form-group row mb-0">
         <div class = "form-group col-md-6">
             <label class = "mb-1">Thời gian bắt đầu</label>
-            <input matInput [for]="datepicker" [matDatepicker]="datepicker" class="w-100 p-2 form-control"  [(ngModel)]="educateInfo.content"/>
-                    <mat-datepicker-toggle matSuffix [for]="datepicker"   style = "position: absolute; top: 25px;color: #000!important; right: 15px"></mat-datepicker-toggle>
-                    <mat-datepicker #datepicker>
-                    </mat-datepicker>
+            <input  class="w-100 form-control p-2"/>
         </div>
         
         <div class = "col-md-6">
@@ -36,10 +33,13 @@
           <input  class="w-100 form-control p-1"/>
       </div>
     </div>
-   
+    <div class = "form-group">
+        <label>Link lớp học</label>
+        <input  class="w-100 form-control p-1"/>
+    </div>
     <div class = "form-group">
         <label class = "mb-1">Mô tả</label>
-        <textarea class="w-100 form-control p-1"></textarea>
+        <textarea class="w-100 form-control p-1 h-5" style = "height: 50px"></textarea>
     </div>
 
 </div>

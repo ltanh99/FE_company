@@ -55,11 +55,12 @@ export class CompanyInfoComponent implements OnInit {
   }
 
 
-  openPopupEdit() {
+  openPopupEdit( detailInfo ) {
 
     let dialogRef = this.dialog.open(EditInfoComponent, {
       width: '800px',
-      height: '500px'
+      height: '500px',
+      data: detailInfo,
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

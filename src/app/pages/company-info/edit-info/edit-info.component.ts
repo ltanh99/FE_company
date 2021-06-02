@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-info',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditInfoComponent implements OnInit {
 
-  constructor() { }
-  company = "Cong ty co phan FPT Software"
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) { }
+  company = localStorage.getItem("common-info");
+  companyName =  JSON.parse(this.company).fullName;
   ngOnInit(): void {
+    
   }
 
 }

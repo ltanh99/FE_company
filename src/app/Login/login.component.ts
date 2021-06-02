@@ -32,6 +32,13 @@ export class LoginComponent implements OnInit {
 
   login(student: Student){
 
+    if(this.student.username == ""){
+      this.toastr.error('Vui lòng nhập tên đăng nhập!');
+    }else 
+    if(this.student.password == ""){
+      this.toastr.error('Vui lòng nhập mật khẩu!');
+    }else{
+
     let token1: string;
     this.studentService.studentLogin(this.student).subscribe(res => {
       console.log(this.student.username);
@@ -45,11 +52,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['tin-tuyen-dung']);
         this.dataService.setMessage(res);
       } else {
-        if (!res.isCompany) {
-          this.toastr.error( 'Đăng nhập bằng tài khoản công ty!');
-        } else {
-          this.toastr.error( 'Đăng nhập thất bại');
-        }
+        this.toastr.error('Tên đăng nhập hoặc mật khẩu không đúng');
       }
     //   token1 = res.token;
     //   localStorage.setItem('token', token1);
@@ -63,8 +66,13 @@ export class LoginComponent implements OnInit {
     // this.userName = decoded.sub;
     // console.log(localStorage.getItem('token'));
     // this.router.navigate(['cong-viec']);
-    })
+    },
+  error => {
+    this.toastr.error('Tên đăng nhập hoặc mật khẩu không đúng');
+    // this.notifier.notify('error', 'Đăng nhập thất bại');
+  }) 
   }
+}
 
   addMinutes(date, minutes) {
     return new Date(date.getTime() + minutes*60000);

@@ -57,7 +57,7 @@ export class AddComponent implements OnInit {
         this.router.navigate(['tin-tuyen-dung']);
       }
     }, error => {
-      this.toastr.error( 'Thêm mới công việc thất bại');
+      this.toastr.error( 'Có lỗi xảy ra, vui lòng thử lại sau!', "Thêm mới thất bại");
     })
     // console.log(this.recruitment.name);
   }
