@@ -3,47 +3,50 @@
     <hr class = "mt-0 mb-2">
     <div class = "form-group">
         <label class = "mb-1">Tên seminar</label>
-        <input  class="w-100 form-control p-1" autofocus/>
+        <input  class="w-100 form-control p-1" autofocus  [(ngModel)]="educateInfo.name"/>
     </div>
     <div class = "form-group">
         <label>Diễn giả</label>
-        <input  class="w-100 form-control p-1"/>
+        <input  class="w-100 form-control p-1"  [(ngModel)]="educateInfo.speaker"/>
     </div>
-    <div class = "form-group row mb-0">
-        <div class = "form-group col-md-6">
-            <label class = "mb-1">Thời gian bắt đầu</label>
-            <input  class="w-100 form-control p-2"/>
-        </div>
+    <div class = "row mb-0">
+        <!-- <div class = "form-group col-md-6">
+            <label class = "mb-1"></label>
+            <input  class="w-100 form-control p-2"  [(ngModel)]="educateInfo.time"/>
+        </div> -->
         
-        <div class = "col-md-6">
+        <div class = "col-md-12 mb-3">
             <label class = "mb-1">Ngày</label>
-            <input matInput [matDatepicker]="datepicker2" class="w-100 p-2 form-control"placeholder="dd/mm/yyyy"/>
-            <mat-datepicker-toggle matSuffix [for]="datepicker2"   style = "position: absolute; top: 25px; right: 15px"></mat-datepicker-toggle>
+            <!-- <input matInput [matDatepicker]="datepicker2" class="w-100 p-2 form-control" placeholder="dd/mm/yyyy"  [(ngModel)]="educateInfo.startDate"/>
+            <mat-datepicker-toggle matSuffix [for]="datepicker2" style = "position: absolute; top: 25px; right: 15px"></mat-datepicker-toggle>
             <mat-datepicker #datepicker2>
-            </mat-datepicker>
+            </mat-datepicker> -->
+            <mat-form-field>
+                <input matInput type="datetime-local" class="w-100 p-2 form-control" style="height: 36px;" placeholder="Thời gian bắt đầu" [(ngModel)]="educateInfo.startDate">
+            </mat-form-field>
         </div>
     </div>
     <div class = "form-group row">
         <div class = "col-md-6">
             <label class = "mb-1"> Số lượng tham gia tối đa</label>
-            <input  class="w-100 form-control p-1"/>
+            <input  class="w-100 form-control p-1"  [(ngModel)]="educateInfo.max"/>
         </div>
         <div class = "col-md-6">
           <label class = "mb-1">Liên hệ</label>
-          <input  class="w-100 form-control p-1"/>
+          <input  class="w-100 form-control p-1"  [(ngModel)]="educateInfo.contact"/>
       </div>
     </div>
     <div class = "form-group">
         <label>Link lớp học</label>
-        <input  class="w-100 form-control p-1"/>
+        <input  class="w-100 form-control p-1"  [(ngModel)]="educateInfo.linkLive"/>
     </div>
     <div class = "form-group">
         <label class = "mb-1">Mô tả</label>
-        <textarea class="w-100 form-control p-1 h-5" style = "height: 50px"></textarea>
+        <textarea class="w-100 form-control p-1 h-5" style = "height: 50px"  [(ngModel)]="educateInfo.description"></textarea>
     </div>
 
 </div>
 <mat-dialog-actions align ="end" class = "mt-0 mb-0 p-0">
-  <button mat-button class="btn btn-outline-primary mb-0">Lưu</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-outline-primary mb-0">Hủy</button>
+    <button mat-button [mat-dialog-close]="true" class="btn btn-outline-primary mb-0">Hủy</button>
+    <button mat-button cdkFocusInitial class="btn btn-outline-primary mb-0" (click)="addEducation()">Lưu</button>
 </mat-dialog-actions>

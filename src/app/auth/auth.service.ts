@@ -11,7 +11,8 @@ export class AuthService {
     // const token = localStorage.getItem('token');
     // return !this.jwtHelper.isTokenExpired(token);
     const expireTime = localStorage.getItem('session');
-    return (parseInt(expireTime) > (new Date()).getTime())
+    let user = JSON.parse(localStorage.getItem("common-info"));
+    return (parseInt(expireTime) > (new Date()).getTime()) && user.isCompany
   }
 }
 

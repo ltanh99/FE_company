@@ -28,4 +28,8 @@ export class GetRecruitmentService {
    getJobById(id): Observable<any> {
     return this.http.get(this.apiGetRecuitment + '/api/v1/jobs/' + id);
   }
+
+  addEducation(body) {
+    return this.http.post(this.apiGetRecuitment + '/api/v1/educates', body);
+  }
 }

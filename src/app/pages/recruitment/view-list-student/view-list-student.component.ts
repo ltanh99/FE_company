@@ -17,6 +17,12 @@ export class ViewListStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.applyInfo = this.data;
+    this.applyInfo?.rows?.forEach(element => {
+      if (element?.cvUrl) {
+        let arraySpl = element.cvUrl.split("/");
+        element.cvName = arraySpl[arraySpl.length - 1];
+      }
+    });
   }
 
 }
