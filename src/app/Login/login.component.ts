@@ -54,18 +54,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.toastr.error('Tên đăng nhập hoặc mật khẩu không đúng');
       }
-    //   token1 = res.token;
-    //   localStorage.setItem('token', token1);
-    //   localStorage.setItem('userName', student.username);
-    //   localStorage.setItem('password', student.password);
-    //   const helper = new JwtHelperService();
 
-    //   const decoded= helper.decodeToken(token1);
-
-    // console.log(decoded);
-    // this.userName = decoded.sub;
-    // console.log(localStorage.getItem('token'));
-    // this.router.navigate(['cong-viec']);
     },
   error => {
     this.toastr.error('Tên đăng nhập hoặc mật khẩu không đúng');
