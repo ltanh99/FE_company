@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CompanyInfoService } from 'app/service/company-info.service';
 import { AddEduComponent } from './add-edu/add-edu.component';
 import { DetailEducationComponent } from './detail-education/detail-education.component';
+import { LinkEducationComponent } from './link-education/link-education.component';
 
 @Component({
   selector: 'app-education',
@@ -132,6 +133,17 @@ export class EducationComponent implements OnInit {
 
   clickSearch() {
     this.toggleSearch = !this.toggleSearch;
+  }
+
+  showLink(item) {
+    let dialogRef = this.dialog.open(LinkEducationComponent, {
+      width: '700px',
+      height: '400px',
+      data: {data: item},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
