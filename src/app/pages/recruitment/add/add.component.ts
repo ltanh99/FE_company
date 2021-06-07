@@ -47,17 +47,17 @@ export class AddComponent implements OnInit {
     if (this.recruitment.quantity) {
       this.recruitment.quantity = +this.recruitment.quantity;
     }
-    if (this.recruitment.content) {
-      this.recruitment.description = +this.recruitment.content;
-    }
+    // if (this.recruitment.content) {
+    //   this.recruitment.description = this.recruitment.content;
+    // }
     this.postRecruitment.postRecruitment(this.recruitment).subscribe(res => {
       // console.log(res);
       if (res) {
-        this.toastr.success( 'Thêm mới công việc thành công');
+        this.toastr.success( 'Thêm mới việc làm thành công');
         this.router.navigate(['tin-tuyen-dung']);
       }
     }, error => {
-      this.toastr.error( 'Có lỗi xảy ra, vui lòng thử lại sau!', "Thêm mới thất bại");
+      this.toastr.error( 'Có lỗi xảy ra, vui lòng thử lại sau!');
     })
     // console.log(this.recruitment.name);
   }

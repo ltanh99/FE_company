@@ -13,6 +13,7 @@ export class CompanyInfoComponent implements OnInit {
 
   userInfo;
   detailInfo;
+  videoUrl;
   form: any;
   constructor(public dialog: MatDialog,
     public companyInfoService: CompanyInfoService) { }
@@ -34,6 +35,7 @@ export class CompanyInfoComponent implements OnInit {
     this.getInfo();
     this.companyInfoService.getCompanyById(this.userInfo.company.id).subscribe(res =>{
       this.detailInfo = res;
+      console.log(this.detailInfo.company.videoUrl);
     })
 
     // this.form = new FormGroup({

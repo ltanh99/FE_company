@@ -42,6 +42,7 @@ import { CompanyInfoComponent } from './pages/company-info/company-info.componen
 import { EditInfoComponent } from './pages/company-info/edit-info/edit-info.component';
 import { AddEduComponent } from "./pages/education/add-edu/add-edu.component";
 import { MatNativeDateModule} from "@angular/material/core";
+import { SafePipeModule } from 'safe-pipe';
 // import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -99,7 +100,8 @@ import { ViewListStudentComponent } from './pages/recruitment/view-list-student/
     // MatDialogActions,
     MatNativeDateModule,
     MatDatepickerModule,
-    FormsModule
+    FormsModule,
+    SafePipeModule
   ],
   entryComponents: [
     // DetailEducationComponent,
