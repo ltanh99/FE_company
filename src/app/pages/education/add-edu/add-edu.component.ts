@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { GetRecruitmentService } from 'app/pages/recruitment/service/get-recruitment.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-edu',
@@ -20,7 +22,9 @@ export class AddEduComponent implements OnInit {
   time: any;
   userInfo: any;
   constructor(
-    public educationService: GetRecruitmentService
+    public educationService: GetRecruitmentService,
+    public dialogRef: MatDialogRef<AddEduComponent>,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -50,11 +54,22 @@ export class AddEduComponent implements OnInit {
       };
       this.educationService.addEducation(body).subscribe(res => {
         if (res) {
+          this.toastr.success('Thêm mới seminar thành công!');
           console.log(res);
+
+          this.dialogRef.close();
+        } else {
+          this.toastr.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
         }
+
+      }, error => {
+        this.toastr.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
       })
+  
+
+      }
+
     }
-  }
 
 
   buildDateString(date: Date) {
