@@ -1,8 +1,8 @@
 <div class = "card  col-md-12">
     <div class = "card-body">
       <div class = "col-md-12 d-flex justify-content-between align-items-center">
-        <input class = "form-control col-md-10" placeholder="Nhập tên công việc">
-        <button class = "btn btn-primary col-md-2"><i class="nc-icon nc-zoom-split"></i> Search</button>
+        <input class = "form-control col-md-10" placeholder="Nhập tên công việc" [(ngModel)]="searchValue">
+        <button class = "btn btn-primary col-md-2"  (click)="search()"><i class="nc-icon nc-zoom-split"></i> Search</button>
       </div>
     </div>  
     

@@ -13,11 +13,12 @@ import { ViewListStudentComponent } from './view-list-student/view-list-student.
 })
 export class RecruitmentComponent implements OnInit {
 
+  searchValue: any;
   constructor( public dialog: MatDialog,
     private getRecruitmentService: GetRecruitmentService,
     public router: Router) { }
 
-  public recruitment: [];
+  public recruitment = [];
   // add() {
   //   console.log(1);
   //   let dialogRef = this.dialog.open(AddComponent, {
@@ -48,9 +49,46 @@ export class RecruitmentComponent implements OnInit {
       })
     })
   }
+
+  search() {
+    let searchRecruitment = [];
+    if (this.searchValue) {
+      if (this.recruitment && this.recruitment.length > 0) {
+        this.recruitment.forEach(element => {
+          if (this.compare(this.searchValue,element?.name) > 0 || this.compare(this.searchValue,element?.formOfWork) > 0 || this.compare(this.searchValue,element?.workingPosition) > 0) {
+            searchRecruitment.push(element);
+          }
+        })
+
+        this.recruitment = searchRecruitment;
+      }
+    } else {
+      this.getRecruitmentList();
+    }
+
+    // console.log(searchRecruitment);
+  }
+
+  compare(strA,strB){
+    if (strA && strB) {
+      for(var result = 0, i = strA.length; i--;){
+        if(typeof strB[i] == 'undefined' || strA[i] == strB[i]) var a: any;
+        else if(strA[i].toLowerCase() == strB[i].toLowerCase())
+            result++;
+        else  
+            result += 4;
+    }
+    return 1 - (result + 4*Math.abs(strA.length - strB.length))/(2*(strA.length+strB.length));
+    } else {
+      return 0;
+    }
+    
+  }
+
   openPageAdd(){
     this.router.navigate(['tin-tuyen-dung/them-moi']);
   }
+
   viewListStudent(dataApply){
     let dialogRef = this.dialog.open(ViewListStudentComponent, {
       width: '800px',

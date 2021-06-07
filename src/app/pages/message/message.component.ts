@@ -134,7 +134,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
           if (nameSplit) {
             let companyNameSplit = nameSplit ? nameSplit[0] : 'Tin nhấn riêng';
             if (companyNameSplit) {
-              companyName = companyNameSplit.split('--c')?companyNameSplit.split('--c')[1]: 'Tin nhấn riêng';
+              companyName = companyNameSplit.split('--c')?companyNameSplit.split('--c')[0]: 'Tin nhấn riêng';
             }
           }
 

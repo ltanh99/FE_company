@@ -12,6 +12,7 @@ import { DetailEducationComponent } from './detail-education/detail-education.co
 export class EducationComponent implements OnInit {
 
   listSeminar: Array<any>;
+  searchData: any;
   toggleSearch = false;
   constructor(
     public dialog: MatDialog,
@@ -28,6 +29,44 @@ export class EducationComponent implements OnInit {
     })
   }
 
+  search() {
+    let searchRecruitment = [];
+    let user = JSON.parse(localStorage.getItem("common-info"));
+    if (this.searchData) {
+      if (this.listSeminar && this.listSeminar.length > 0) {
+        this.listSeminar.forEach(element => {
+          if (this.compare(this.searchData,element?.name) > 0 || this.compare(this.searchData,element?.formOfWork) > 0 || this.compare(this.searchData,element?.workingPosition) > 0) {
+            searchRecruitment.push(element);
+          }
+        })
+
+        this.listSeminar = searchRecruitment;
+      }
+    } else {
+      this.eduService.getEducation(user?.company?.id).subscribe(res => {
+        if (res) {
+          this.listSeminar = res.rows;
+        }
+      })
+    }
+  }
+
+  compare(strA,strB){
+    if (strA && strB) {
+      for(var result = 0, i = strA.length; i--;){
+        if(typeof strB[i] == 'undefined' || strA[i] == strB[i]) var a: any;
+        else if(strA[i].toLowerCase() == strB[i].toLowerCase())
+            result++;
+        else  
+            result += 4;
+    }
+    return 1 - (result + 4*Math.abs(strA.length - strB.length))/(2*(strA.length+strB.length));
+    } else {
+      return 0;
+    }
+    
+  }
+  
 
   viewDetail(e) {
     console.log(e);
