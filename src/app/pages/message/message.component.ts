@@ -26,7 +26,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
   chooseChannel;
   constructor(
     public route: ActivatedRoute) {}
-  
+
   async ngOnInit() {
     this.id = this.route.snapshot.queryParamMap.get('id');
     this.name = this.route.snapshot.queryParamMap.get('name');
@@ -61,13 +61,13 @@ export class MessageComponent implements OnInit, AfterViewChecked{
 
 
   ngAfterViewChecked() {
-    // this.scrollToBottom();    
+    // this.scrollToBottom();
   }
 
   scrollToBottom(): void {
     try {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }                 
+    } catch(err) { }
 }
   changeChat(e?,i?) {
     console.log(e);
@@ -79,6 +79,17 @@ export class MessageComponent implements OnInit, AfterViewChecked{
     this.channel.on('message.new', event => {
       this.messages = [...this.messages, event.message];
     });
+
+    this.channelList.forEach((item,index) => {
+      if (item?.data?.name.indexOf("--c") !== -1 && item?.data?.name.indexOf("--u") !== -1) {
+        let companyName;
+        let nameSplit = item?.data?.name.split('--u');
+        companyName = nameSplit?nameSplit[1]: 'Tin nhấn riêng';
+        if (companyName) {
+          item.data.name = companyName;
+        }
+      }
+    })
 
     this.chooseChannel = i;
   }
@@ -139,7 +150,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
       })
       if(channelId) {
         this.channelList.forEach((item,index) => {
-         
+
           if (item.id == channelId) {
             this.channel = item;
             let tmpChannel = item;
@@ -153,7 +164,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
       } else {
         this.channel = this.channelList[0];
       }
-      
+
       this.messages = this.channel.state.messages;
       this.channel.on('message.new', event => {
         this.messages = [...this.messages, event.message];
