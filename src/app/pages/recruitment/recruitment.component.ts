@@ -5,6 +5,7 @@ import { AddComponent } from './add/add.component';
 import { Recruitment } from './recruitment';
 import { Router } from '@angular/router';
 import { ViewListStudentComponent } from './view-list-student/view-list-student.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-recruitment',
@@ -15,6 +16,7 @@ export class RecruitmentComponent implements OnInit {
 
   searchValue: any;
   constructor( public dialog: MatDialog,
+    private toastr: ToastrService,
     private getRecruitmentService: GetRecruitmentService,
     public router: Router) { }
 
@@ -105,5 +107,14 @@ export class RecruitmentComponent implements OnInit {
 
   gotoChat(item) {
     this.router.navigate(['tin-nhan'],{queryParams: {id: 'job'+item.id,name: item.name}})
+  }
+
+  deleteJob(item) {
+    this.getRecruitmentService.deleteJob(item).subscribe(res => {
+        this.getRecruitmentList();
+        this.toastr.success("Xoá công việc thành công")
+    }, error => {
+      this.toastr.error("Xóa công việc thất bại");
+    })
   }
 }

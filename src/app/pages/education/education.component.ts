@@ -135,6 +135,10 @@ export class EducationComponent implements OnInit {
     this.toggleSearch = !this.toggleSearch;
   }
 
+  // deleteEducation(id) {
+
+  // }
+
   showLink(item) {
     let dialogRef = this.dialog.open(LinkEducationComponent, {
       width: '700px',

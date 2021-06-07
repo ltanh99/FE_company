@@ -40,6 +40,7 @@
                     <button class = "btn btn-outline-primary" (click) = "viewListStudent(item?.apply)" [class.disabled] = "item?.apply?.total === 0">Xem DS SV ứng tuyển </button>
                     <button class = "btn btn-outline-primary" (click) = "gotoChat(item)">Đi đến nhóm chat</button>
                     <button class = "btn btn-outline-primary" (click)="showDetail(item?.id)">Xem chi tiết</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteJob(item?.id)">Xóa</button>
                   </div>
                 </div>
                 

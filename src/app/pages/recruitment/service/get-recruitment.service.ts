@@ -29,6 +29,10 @@ export class GetRecruitmentService {
     return this.http.get(this.apiGetRecuitment + '/api/v1/jobs/' + id);
   }
 
+  deleteJob(id): Observable<any> {
+    return this.http.delete(this.apiGetRecuitment + '/api/v1/jobs/'+id);
+  }
+
   addEducation(body) {
     return this.http.post(this.apiGetRecuitment + '/api/v1/educates', body);
   }
