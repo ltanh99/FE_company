@@ -35,6 +35,10 @@ export class AddEduComponent implements OnInit {
 
   addEducation () {
     if (this.educateInfo && this.userInfo) {
+      let dateString;
+      if (this.educateInfo.startDate && new Date(this.educateInfo.startDate)) {
+        dateString = this.buildDateString(new Date(this.educateInfo.startDate));
+      }
       let body = {
         "address": this.userInfo.address,
         "companyId": this.userInfo.company.id,
@@ -42,7 +46,7 @@ export class AddEduComponent implements OnInit {
         "messageId": "educate"+this.userInfo.company.id,
         "name": this.educateInfo.name,
         "speaker": this.educateInfo.speaker,
-        "startDate": this.educateInfo.startDate?new Date(this.educateInfo.startDate): null
+        "startDate": dateString ? dateString: null
       };
       this.educationService.addEducation(body).subscribe(res => {
         if (res) {
@@ -50,6 +54,18 @@ export class AddEduComponent implements OnInit {
         }
       })
     }
+  }
+
+
+  buildDateString(date: Date) {
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate() + '';
+    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : (date.getMonth() + 1) + '';
+    const year = date.getFullYear() + '';
+    const hour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours() + '';
+    const minute = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes() + '';
+    const second = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds() + '';
+
+    return `${day}/${month}/${year} ${hour}:${minute}:${second}`;
   }
 
 }
