@@ -36,18 +36,18 @@ export class MessageComponent implements OnInit, AfterViewChecked{
       this.joinChat(this.id,this.name);
     // }
 
-    if (this.companyUsername) {
-      // this.joinChat(this.id,this.companyUsername);
-      let id = this.route.snapshot.queryParamMap.get('id');
-      let name = this.route.snapshot.queryParamMap.get('name');
-      let companyUsername = this.route.snapshot.queryParamMap.get('company');
-      const response = await axios.post('http://128.199.207.230:5500/join', {
-        // const response = await axios.post('http://localhost:5500/join', {
-        companyUsername,
-        id,
-        name
-      });
-    }
+    // if (this.companyUsername) {
+    //   // this.joinChat(this.id,this.companyUsername);
+    //   let id = this.route.snapshot.queryParamMap.get('id');
+    //   let name = this.route.snapshot.queryParamMap.get('name');
+    //   let companyUsername = this.route.snapshot.queryParamMap.get('company');
+    //   const response = await axios.post('http://128.199.207.230:5500/join', {
+    //     // const response = await axios.post('http://localhost:5500/join', {
+    //     companyUsername,
+    //     id,
+    //     name
+    //   });
+    // }
   }
 
   getRandomColor() {
@@ -131,13 +131,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
         if (item?.data?.name.indexOf("--c") !== -1 && item?.data?.name.indexOf("--u") !== -1) {
           let companyName;
           let nameSplit = item?.data?.name.split('--u');
-          if (nameSplit) {
-            let companyNameSplit = nameSplit ? nameSplit[0] : 'Tin nhấn riêng';
-            if (companyNameSplit) {
-              companyName = companyNameSplit.split('--c')?companyNameSplit.split('--c')[0]: 'Tin nhấn riêng';
-            }
-          }
-
+          companyName = nameSplit?nameSplit[1]: 'Tin nhấn riêng';
           if (companyName) {
             item.data.name = companyName;
           }
