@@ -34,20 +34,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
     if (!this.id && !this.name) this.chooseChannel = 0
     // if (this.id && this.name) {
       this.joinChat(this.id,this.name);
-    // }
 
-    // if (this.companyUsername) {
-    //   // this.joinChat(this.id,this.companyUsername);
-    //   let id = this.route.snapshot.queryParamMap.get('id');
-    //   let name = this.route.snapshot.queryParamMap.get('name');
-    //   let companyUsername = this.route.snapshot.queryParamMap.get('company');
-    //   const response = await axios.post('http://128.199.207.230:5500/join', {
-    //     // const response = await axios.post('http://localhost:5500/join', {
-    //     companyUsername,
-    //     id,
-    //     name
-    //   });
-    // }
   }
 
   getRandomColor() {
@@ -156,7 +143,7 @@ export class MessageComponent implements OnInit, AfterViewChecked{
             let tmpChannel = item;
             this.channelList.splice(index, 1);
             this.channelList.unshift(tmpChannel);
-            this.chooseChannel = index;
+            this.chooseChannel = 0;
             // this.channelList[0] = item;
             // this.channelList[index] = tmpChannel;
           }
@@ -177,10 +164,20 @@ export class MessageComponent implements OnInit, AfterViewChecked{
 
   async sendMessage() {
     if (this.newMessage.trim() === '') {
+      this.newMessage = this.newMessage.trim();
       return;
     }
 
     try {
+      this.channelList.forEach((item, index) => {
+
+        if (item.id == this.channel.id) {
+          let tmpChannel = item;
+          this.channelList.splice(index, 1);
+          this.channelList.unshift(tmpChannel);
+          this.chooseChannel = 0;
+        }
+      })
       await this.channel.sendMessage({
         text: this.newMessage,
       });
