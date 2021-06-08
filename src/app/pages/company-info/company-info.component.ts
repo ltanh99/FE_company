@@ -61,7 +61,7 @@ export class CompanyInfoComponent implements OnInit {
 
     let dialogRef = this.dialog.open(EditInfoComponent, {
       width: '800px',
-      height: '500px',
+      height: '600px',
       data: detailInfo,
     });
     dialogRef.afterClosed().subscribe(result => {

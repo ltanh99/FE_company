@@ -9,13 +9,19 @@
             <div class="form-group row mb-0">
                 <span class="col-sm-3 col-form-label">Địa chỉ công ty: </span>
                 <div class="col-sm-12">
-                    <input type="text" class="w-100 form-control" formControlName="address" value="">
+                    <input type="text" class="w-100 form-control" formControlName="address" [(ngModel)] = "c.address" value="">
+                </div>
+            </div>
+            <div class="form-group row mb-0">
+                <span class="col-sm-3 col-form-label">Website: </span>
+                <div class="col-sm-12">
+                    <input type="text" class="w-100 form-control" formControlName="introduce" [(ngModel)] = "c.introduce" value="">
                 </div>
             </div>
             <div class="form-group row mt-0 mb-0">
                 <span class="col-sm-3 col-form-label">Giới thiệu công ty: </span>
                 <div class="col-sm-12">
-                    <textarea type="text" class="w-100 long-input  form-control" formControlName="description" value="">
+                    <textarea type="text" class="w-100 long-input form-control" formControlName="description" [(ngModel)] = "c.description" value="">
                     </textarea>
                 </div>
             </div>
@@ -23,13 +29,13 @@
                 <div class = "col-md-6">
                     <span class=" col-form-label">Năm thành lập: </span>
                 <div class="">
-                    <input  class="w-100  form-control" formControlName="year" value="1900"/>
+                    <input  class="w-100  form-control" formControlName="year" [(ngModel)] = "c.year" value="1900"/>
                 </div>
                 </div>
                 <div class = "col-md-6">
                     <span class=" col-form-label">Quy mô: </span>
                 <div class="">
-                    <input  class="w-100  form-control" formControlName="scale" value="15000"/>
+                    <input  class="w-100  form-control" formControlName="scale" [(ngModel)] = "c.scale" value="15000"/>
                 </div>
                 </div>
                 
@@ -37,7 +43,7 @@
             <div class="form-group row mb-0">
                 <span class="col-sm-3 col-form-label">Video giới thiệu: </span>
                 <div class="col-sm-12">
-                    <input  class="w-100  form-control" formControlName="videoUrl" placeholder="link video youtube">
+                    <input  class="w-100  form-control" formControlName="videoUrl" [(ngModel)] = "c.videoUrl" placeholder="link video youtube">
                 </div>
             </div>
         </div>
@@ -45,5 +51,5 @@
 </div>
 <mat-dialog-actions align ="end" class = "mt-0 mb-0 p-0">
     <button mat-button [mat-dialog-close]="true" class="btn btn-outline-primary">Hủy</button>
-    <button mat-button cdkFocusInitial class="btn btn-outline-primary">Lưu</button>
+    <button mat-button cdkFocusInitial class="btn btn-outline-primary" (click) = "submit()">Lưu</button>
   </mat-dialog-actions>

@@ -25,5 +25,7 @@ export class CompanyInfoService {
   getEducationById(id): Observable<any> {
     return this.http.get(this.apiUrl + 'api/v1/educates/' + id);
   }
-  
+  updateCompany(user, id): Observable<any> {
+    return this.http.put(this.apiUrl + 'api/v1/companies/' + id, user);
+  }
 }
