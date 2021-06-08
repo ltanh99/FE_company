@@ -12,6 +12,7 @@
         <div class = "col-md-7">
           <h2 class = "mb-4 pb-0">{{detailInfo?.fullName}}</h2>
           <p ><i class="nc-icon nc-pin-3"></i> Địa chỉ: {{detailInfo?.address}}</p>
+          <p ><i class="fas fa-link"></i> Website: {{detailInfo?.company?.introduce}}</p>
         </div>
         <div class = "col-md-2">
           <button class = "btn btn-primary col-md-12" (click) = "openPopupEdit(detailInfo)">Chỉnh sửa</button>
